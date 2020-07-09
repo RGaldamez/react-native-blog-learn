@@ -10,7 +10,7 @@ import {
 import {Context} from '../context/BlogContext';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-const BlogScreen = () => {
+const BlogScreen = ({navigation}) => {
   const {state, addBlogPost, deleteBlogPost} = useContext(Context);
   return (
     <View>
@@ -21,14 +21,17 @@ const BlogScreen = () => {
         keyExtractor={blogPost => blogPost.id}
         renderItem={({item}) => {
           return (
-            <View style={styles.row}>
-              <Text>
-                {item.title} - {item.id}
-              </Text>
-              <TouchableOpacity onPress={() => deleteBlogPost(item.id)}>
-                <Icon name="trash-o" style={styles.trashIconStyle} />
-              </TouchableOpacity>
-            </View>
+            <TouchableOpacity
+              onPress={() => navigation.navigate('Show', {id: item.id})}>
+              <View style={styles.row}>
+                <Text>
+                  {item.title} - {item.id}
+                </Text>
+                <TouchableOpacity onPress={() => deleteBlogPost(item.id)}>
+                  <Icon name="trash-o" style={styles.trashIconStyle} />
+                </TouchableOpacity>
+              </View>
+            </TouchableOpacity>
           );
         }}
       />
