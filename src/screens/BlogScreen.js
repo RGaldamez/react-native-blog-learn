@@ -39,10 +39,23 @@ const BlogScreen = ({navigation}) => {
   );
 };
 
+BlogScreen.navigationOptions = ({navigation}) => {
+  return {
+    headerRight: () => (
+      <TouchableOpacity onPress={() => navigation.navigate('Create')}>
+        <Icon name="plus-square-o" style={styles.plusIconStyle} />
+      </TouchableOpacity>
+    ),
+  };
+};
+
 const styles = StyleSheet.create({
   trashIconStyle: {
     fontSize: 24,
     fontWeight: 'bold',
+  },
+  plusIconStyle: {
+    fontSize: 34,
   },
   row: {
     flexDirection: 'row',

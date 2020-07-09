@@ -4,10 +4,12 @@ import {createStackNavigator} from 'react-navigation-stack';
 import {Provider} from './src/context/BlogContext';
 import BlogScreen from './src/screens/BlogScreen';
 import ShowScreen from './src/screens/ShowScreen';
+import CreateScreen from './src/screens/CreateScreen';
 const navigator = createStackNavigator(
   {
     Blogs: BlogScreen,
     Show: ShowScreen,
+    Create: CreateScreen,
   },
 
   {
