@@ -14,8 +14,8 @@ const BlogScreen = ({navigation}) => {
   const {state, addBlogPost, deleteBlogPost} = useContext(Context);
   return (
     <View>
-      <Text>Index Screen</Text>
-      <Button title="Add Post" onPress={addBlogPost} />
+      {/* <Text>Index Screen</Text>
+      <Button title="Add Post" onPress={addBlogPost} /> */}
       <FlatList
         data={state}
         keyExtractor={blogPost => blogPost.id}
@@ -55,7 +55,8 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   plusIconStyle: {
-    fontSize: 34,
+    fontSize: 40,
+    paddingRight: 10,
   },
   row: {
     flexDirection: 'row',
